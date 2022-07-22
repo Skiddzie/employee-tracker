@@ -1,16 +1,12 @@
 INSERT INTO departments (name)
 VALUES 
-    ('manager'),
-    ('grunt');
-INSERT INTO candidates (first_name, last_name, party_id, industry_connected)
+    ('hr'),
+    ('development');
+INSERT INTO roles (job, salary, department_id)
 VALUES
-  ('Ronald', 'Firbank', 1, 1),
-  ('Virginia', 'Woolf', 1, 1),
-  ('Piers', 'Gaveston', 1, 0),
-  ('Charles', 'LeRoi', 2, 1),
-  ('Katherine', 'Mansfield', 2, 1),
-  ('Dora', 'Carrington', 3, 0),
-  ('Edward', 'Bellamy', 3, 0),
-  ('Montague', 'Summers', 3, 1),
-  ('Octavia', 'Butler', 3, 1),
-  ('Unica', 'Zurn', NULL, 1);
+  ('hr_manager', 100, 1),
+  ('development_developer', 59, 2);
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES
+    ("john", "smith", 1, NULL),
+    ("dan", "smith", 2, 1)
