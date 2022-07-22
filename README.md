@@ -1,3 +1,5 @@
 # employee-tracker
 
-it doesn't work
+very good program to track employees
+
+https://www.youtube.com/watch?v=06YvBA6VaBI
