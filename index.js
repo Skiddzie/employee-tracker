@@ -70,6 +70,50 @@ function addDepartment() {
   
 }
 
+function addRole() {
+  inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'name of role?',
+    },
+    {
+      type: 'input',
+      name: "salary",
+      message: "salary of role?",
+    },
+    {
+      type: 'input',
+      name: 'department',
+      message: 'name of department?',
+    }
+  ])
+  .then((answers) => {
+    const query = `INSERT INTO roles (job, salary, department_id) VALUES ((${answers.name}), (${answers.salary}), 1);`;
+    connection.query(
+      query,
+      answers.name,
+      answers.salary,
+      function(err, results, fields) {
+        if (err){
+          console.log(err);
+        };
+        console.table(results); // results contains rows returned by server
+        question();
+      }
+    );
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  });
+  
+}
+
 function question() {
   inquirer
   .prompt([
@@ -102,6 +146,9 @@ function question() {
         break;
       case 'add a department':
         addDepartment();
+        break;
+      case 'add a role':
+        addRole();
         break;
     }
   })
